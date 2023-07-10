@@ -32,10 +32,18 @@
                 // .then(data => console.log(data['0']['meanings']['0']['definitions']['0']['definition']));
             function func(data)
             {
-                let random = Math.random(data['0']['meanings']['0']['definitions']);
-                var random1 = Math.floor(random * 2)
-                my_result.innerHTML = '<h2>' + data['0']['meanings'][random1]['definitions']['0']['definition'] +  '</h2>'
-                my_result.className = 'alert alert-primary mt-4'
+                if(data['title']==='No Definitions Found')
+                {
+                    my_result.innerHTML = '<h2>' + 'Wrong Input' +  '</h2>'
+                    my_result.className = 'alert alert-primary mt-4'
+                }
+                else
+                {
+                    let random = Math.random(data['0']['meanings']['0']['definitions']);
+                    var random1 = Math.floor(random * 2)
+                    my_result.innerHTML = '<h2>' + data['0']['meanings'][random1]['definitions']['0']['definition'] +  '</h2>'
+                    my_result.className = 'alert alert-primary mt-4'
+                }
             }
         }
     </script>
